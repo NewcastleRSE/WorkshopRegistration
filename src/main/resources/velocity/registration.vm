@@ -17,8 +17,8 @@
             #end
         </select>
 
-        <div id="info_block" style="display:none">
-
+        <div class="infobox" id="infobox" style="display:none">
+            <div id="content"></div>
         </div>
 
         <label for="firstName">First Name</label>
@@ -229,8 +229,34 @@
     const selectedWorkshop = document.getElementById('id');
     selectedWorkshop.addEventListener('change',function handleChange(event) {
         let workshopType = event.target.options[event.target.selectedIndex].dataset.type;
-        //let element = document.getElementById(workshopType);
-        let element = document.getElementById('info_block');
+        let element = document.getElementById('infobox');
+        // let string = fetch(workshopType + ".html");
+        fetch(workshopType + '.html')
+                .then(function(response) {
+                    // When the page is loaded convert it to text
+                    return response.text()
+                })
+                .then(function(html) {
+                    // Initialize the DOM parser
+                    var parser = new DOMParser();
+
+                    // Parse the text
+                    var doc = parser.parseFromString(html, "text/html");
+
+                    // You can now even select part of that html as you would in the regular DOM
+                    // Example:
+                    // var docArticle = doc.querySelector('article').innerHTML;
+
+                    console.log(doc);
+                    // retrieve content div
+                    let oldContent = document.getElementById("content");
+                    let content = doc.getElementById("content");
+                    element.removeChild(oldContent);
+                    element.appendChild(content);
+                })
+                .catch(function(err) {
+                    console.log('Failed to fetch page: ', err);
+                });
         element.style.display = 'block';
         console.log(element);
         console.log(workshopType);
