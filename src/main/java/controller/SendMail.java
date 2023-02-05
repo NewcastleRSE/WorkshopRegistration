@@ -33,6 +33,7 @@ public class SendMail {
             properties.put("mail.smtp.auth", "true");
             String from = properties.getProperty("mail.smtp.from");
             String password = properties.getProperty("mail.smtp.password");
+            System.out.println("PASSWORD: " + password);
             String to = properties.getProperty("mail.smtp.to");
             logger.debug("Properties: " + properties.toString());
             // Get the Session object.// and pass username and password

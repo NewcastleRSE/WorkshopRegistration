@@ -1,3 +1,5 @@
 system.properties
 .idea/
 target/
+*.log
+*thisyear.yml

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form submitted</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div class="infobox">
+    $include_file
+</div>
+<div style="padding-top: 15px; padding-left: 15px;">
+    #foreach( $key in $form_content.keySet() )
+        <b>$key:</b> $form_content.get($key)<br/>
+    #end
+
+</div>
+
+<div class="formbox">
+
+</div>
+</body>
