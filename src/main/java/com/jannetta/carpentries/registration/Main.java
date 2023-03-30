@@ -23,11 +23,15 @@ public class Main {
 
     public static void main(String[] args) {
         Globals globals = Globals.getInstance();
-        port(Integer.parseInt(System.getenv("PORT")));
+        if (System.getenv("PORT") == null)
+            port(8080);
+        else
+            port(Integer.parseInt(System.getenv("PORT")));
         staticFiles.location("/public");
 
         logger.debug(Globals.getProperties().getProperty("data_file"));
         get("/", RegistrationController::serveRegistrationPage, new VelocityTemplateEngine());
+        get("/form", RegistrationController::serveRegistrationPage, new VelocityTemplateEngine());
         post("/submitForm", RegistrationController::submitForm, new VelocityTemplateEngine());
     }
 }
