@@ -1,5 +1,6 @@
 package model;
 
+import com.jannetta.carpentries.registration.model.Workshop;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

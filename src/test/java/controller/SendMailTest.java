@@ -1,6 +1,6 @@
 package controller;
 
-import static controller.SendMail.send;
+import static com.jannetta.carpentries.registration.controller.SendMail.send;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SendMailTest {

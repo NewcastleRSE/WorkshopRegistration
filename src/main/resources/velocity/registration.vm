@@ -226,12 +226,13 @@
             box.style.visibility = 'visible';
         }
     });
+    // Listen for selection of workshop in dropdown box
     const selectedWorkshop = document.getElementById('id');
     selectedWorkshop.addEventListener('change',function handleChange(event) {
         let workshopType = event.target.options[event.target.selectedIndex].dataset.type;
+        console.log(workshopType);
         let element = document.getElementById('infobox');
-        // let string = fetch(workshopType + ".html");
-        fetch(workshopType + '.html')
+        fetch('https://carpentries.ncldata.dev/' + workshopType + '.html')
                 .then(function(response) {
                     // When the page is loaded convert it to text
                     return response.text()
@@ -242,10 +243,6 @@
 
                     // Parse the text
                     var doc = parser.parseFromString(html, "text/html");
-
-                    // You can now even select part of that html as you would in the regular DOM
-                    // Example:
-                    // var docArticle = doc.querySelector('article').innerHTML;
 
                     console.log(doc);
                     // retrieve content div

@@ -1,6 +1,7 @@
 package controller;	
 	
-import model.RegistrationForm;	
+import com.jannetta.carpentries.registration.controller.JsonTransformer;
+import com.jannetta.carpentries.registration.model.RegistrationForm;
 import org.junit.jupiter.api.Assertions;	
 import org.junit.jupiter.api.Test;	
 	
@@ -8,7 +9,7 @@ class JsonTransformerTest {
 	
     @Test	
     void renderTest() {	
-        JsonTransformer jsonTransformer = new JsonTransformer();	
+        JsonTransformer jsonTransformer = new JsonTransformer();
         RegistrationForm registrationForm = new RegistrationForm("2023-03-03-NCL","Jannetta",
                 "S", "Steyn","vegan", "website",
                 "njss3", "07801889997", "PhD", "Computing",
