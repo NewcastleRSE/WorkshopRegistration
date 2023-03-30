@@ -23,8 +23,7 @@ public class Main {
 
     public static void main(String[] args) {
         Globals globals = Globals.getInstance();
-        port(80);
-        logger.info("Port: " + 80);
+        port(Integer.parseInt(System.getenv("PORT")));
         staticFiles.location("/public");
 
         logger.debug(Globals.getProperties().getProperty("data_file"));
