@@ -1,7 +1,7 @@
 PROJECTNAME=`basename ${PWD}`
 
 serve:
-	docker run -d --rm --name $(PROJECTNAME) -p 80:3000 jannetta/registration:0.1
+	docker run -d --rm --name $(PROJECTNAME) -p 80:80 jannetta/registration:0.1
 
 stop:
 	docker stop $(PROJECTNAME)
