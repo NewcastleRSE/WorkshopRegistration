@@ -3,3 +3,4 @@ system.properties
 target/
 *.log
 tobedeleted
+out/

@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         Globals globals = Globals.getInstance();
         if (System.getenv("PORT") == null)
-            port(8080);
+            port(80);
         else
             port(Integer.parseInt(System.getenv("PORT")));
         staticFiles.location("/public");
